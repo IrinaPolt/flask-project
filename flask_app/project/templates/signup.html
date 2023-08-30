@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="container-fluid">
+    <form class="mx-auto" method="POST" action="/signup">
+        <h4 class="text-center">Signup</h4>
+        {% with messages = get_flashed_messages() %}
+        {% if messages %}
+          <div class="notification">
+            {{ messages[0] }}
+          </div>
+        {% endif %}
+        {% endwith %}
+        <div class="mb-3 mt-5">
+          <input class="input is-large form-control" type="text" name="name" placeholder="Your Name">
+        </div>
+        <div class="mb-3">
+          <input class="input is-large form-control custom-input" type="email" name="email" placeholder="Your Email" autofocus="">
+        </div>
+        <div class="mb-3">
+          <input class="input is-large form-control" type="password" name="password" placeholder="Your Password">
+        </div>
+        <div class="mb-3">
+          <label class="checkbox">
+            <input type="checkbox">
+            Remember me
+          </label>
+        </div>
+        <button class="btn btn-primary btn-lg btn-block" type="submit">Login</button>
+    </form>
+</div>
+{% endblock %}
